@@ -6,6 +6,8 @@ $students = [
     ['name' => 'Петя Димитрова',   'fn' => 62559, 'mark' => 6.00]
 ];
 
+array_multisort(array_column($students, 'mark'), SORT_DESC, $students);
+
 include ('validation.php')
 ?>
 
