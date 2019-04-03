@@ -1,5 +1,4 @@
 <?php
-include ('list_of_all_students.php');
 
 // this will execute on submit
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -31,11 +30,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty($nameError) && empty($fnError) && empty($markError)) {
-        $students[] = ['name' => $name, 'fn'   => $fn, 'mark' => $mark];
-        // echo arsort($students);
-        $json_data = json_encode($students);
-        include ('list_students.html');
-        exit();
+        $success = "Student successfully added!";
+        $new_student = ['name' => $name.$fn, 'fn'   => $fn, 'mark' => $mark];
+        $students[] = $new_student;
+
+        unset($_POST['submit']);
+        $name = $fn = $mark = "";
     }
 }
 
