@@ -1,4 +1,5 @@
 <?php
+session_start();
 // this will execute on submit
 if (isset($_POST["submit"])) {
     $name = $fn = $mark = "";

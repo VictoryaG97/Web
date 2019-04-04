@@ -1,0 +1,54 @@
+body {
+  margin-top: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #e4edf7;
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+}
+
+.title{
+  text-align: center;
+
+}
+
+.add-form {
+  border: 1px solid #436dee;
+  background-color: #9ad4f1;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 40px 500px;
+  width: 400px;
+  height: 250px;
+}
+
+.add-form-content {
+  margin-top: 40px;
+}
+
+.block {
+  margin: 0 60px;
+  text-align: right
+}
+
+input[type=submit] {
+  width: 100px;
+  margin: 20px 75px;
+}
+
+.error {
+  color: darkred;
+  font-size: smaller;
+}
+
+table, td {
+  border: 1px solid #436dee;
+  border-radius: 2px;
+  margin: 40px 500px;
+}
+
+th {
+  background-color: #9ad4f1;
+}

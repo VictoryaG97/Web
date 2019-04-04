@@ -21,7 +21,7 @@ array_multisort(array_column($students, 'mark'), SORT_DESC, $students);
         <link href="style.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-        <div id='content'></div>
+        <div class="content" id='content'></div>
         <script>
             var js_students = <?php echo json_encode($students) ?>;
 
@@ -32,7 +32,7 @@ array_multisort(array_column($students, 'mark'), SORT_DESC, $students);
             function buildTable(data) {
                 data = data.sort();
                 var table = document.createElement("table");
-                table.className="gridtable";
+                table.className="students-table";
                 table.id="students-table";
                 var thead = document.createElement("thead");
                 var tbody = document.createElement("tbody");
