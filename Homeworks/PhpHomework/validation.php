@@ -1,7 +1,8 @@
 <?php
-
 // this will execute on submit
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (isset($_POST["submit"])) {
+    $name = $fn = $mark = "";
+    $nameError = $fnError = $markError = "";
     // validate student name
     if (empty($_POST["name"])) {
         $nameError = "Името е задължително поле.";
@@ -30,12 +31,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty($nameError) && empty($fnError) && empty($markError)) {
-        $success = "Student successfully added!";
-        $new_student = ['name' => $name.$fn, 'fn'   => $fn, 'mark' => $mark];
-        $students[] = $new_student;
-
-        unset($_POST['submit']);
-        $name = $fn = $mark = "";
+        $_SESSION["name"] = $name;
+        $_SESSION["fn"] = $fn;
+        $_SESSION["mark"] = $mark;
+        header("Location:list_students.php");
+        exit();
     }
 }
 
