@@ -21,9 +21,9 @@ if (isset($input['email']) && isset($input['first_name']) &&
             $salt = generateSalt();
             $password_hash = password_hash(addSaltToPass($password, $salt), PASSWORD_DEFAULT);
 
-            $insert_query = "INSERT INTO users(email, first_name, last_name, password_hash, salt) VALUES (?, ?, ?, ?, ?)";
+            $insert_query = "INSERT INTO users(email, first_name, last_name, role, password_hash, salt) VALUES (?, ?, ?, ?, ?, ?)";
             if ($stmt = $conn->prepare($insert_query)){
-                $stmt->execute([$email, $first_name, $last_name, $password_hash, $salt]);
+                $stmt->execute([$email, $first_name, $last_name, "User", $password_hash, $salt]);
                 $response["status"] = 200;
                 $response["message"] = "User created";
                 $stmt->close();
