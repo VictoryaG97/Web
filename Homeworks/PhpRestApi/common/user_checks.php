@@ -1,15 +1,15 @@
 <?php
+include 'Homeworks/PhpRestApi/config/db_connect.php';
 function userExists($email){
-    $q = "SELECT email FROM users WHERE email = ?";
     global $conn;
-    
-    $stmt = $conn->prepare($q);
+
+    $stmt = $conn->prepare("SELECT email FROM users WHERE email = ?");
     $stmt->execute([$email]);
-    $row = $query->fetch(PDO::FETCH_ASSOC);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
     
     if ($row) {
-        return true;
+        return "true";
     }
-    return false;
+    return "false";
 }
 ?>

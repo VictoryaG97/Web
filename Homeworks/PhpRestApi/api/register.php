@@ -1,13 +1,13 @@
-<?php 
-include 'common/db/db_connect.php';
-include 'common/checks.php';
-include 'common/password_settings.php';
+<?php
+include 'Homeworks/PhpRestApi/common/user_checks.php';
+include 'Homeworks/PhpRestApi/common/password_settings.php';
 
 $response = array();
 
 # get input params from the request
 $inputJSON = file_get_contents('php://input');
 $input = json_decode($inputJSON, TRUE);
+echo "INPUT: ".$input;
 
 # check if all required params are set 
 if (isset($input['email']) && isset($input['first_name']) &&
