@@ -1,5 +1,5 @@
 <?php
-include 'Homeworks/PhpRestApi/config/db_connect.php';
+include dirname(__FILE__).'\..\config\db_connect.php';
 function userExists($email){
     global $conn;
 
@@ -8,8 +8,8 @@ function userExists($email){
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     
     if ($row) {
-        return "true";
+        return true;
     }
-    return "false";
+    return false;
 }
 ?>
