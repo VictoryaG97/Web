@@ -1,6 +1,5 @@
 <?php
 include dirname(__FILE__).'\..\common\user_checks.php';
-include dirname(__FILE__).'\..\common\password_settings.php';
 
 $response = array();
 
@@ -17,12 +16,11 @@ if (isset($_POST['email']) && isset($_POST['first_name']) &&
             $response["status"] = 409;
             $response["message"] = "User already exists";
         } else {
-            $salt = generateSalt();
-            $password_hash = password_hash(addSaltToPass($password, $salt), PASSWORD_DEFAULT);
+            $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
             $stmt = $conn->prepare("INSERT INTO users(
-                email, first_name, last_name, password_hash, role, salt)
-                VALUES (:email, :fname, :lname, :pass, :role, :salt)
+                email, first_name, last_name, password_hash, role)
+                VALUES (:email, :fname, :lname, :pass, :role)
             ");
             $stmt->execute([
                 'email' => $email,
@@ -30,7 +28,6 @@ if (isset($_POST['email']) && isset($_POST['first_name']) &&
                 'lname' => $last_name,
                 'role'  => "User",
                 'pass'  => $password_hash,
-                'salt'  => $salt
             ]);
             $response["status"] = 200;
             $response["message"] = "User created";
