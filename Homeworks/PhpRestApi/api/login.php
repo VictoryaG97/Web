@@ -24,7 +24,6 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
                     if (isset($_POST['remember'])){
                         setcookie('email', $email, time() + 3600, '/', '', true, true);
-                        setcookie('password', $password, time() + 3600, '/', '', true, true);
                         setcookie('role', $row['role'], time() + 3600, '/', '', true, true);
                     }
                     $response['status'] = 200;
