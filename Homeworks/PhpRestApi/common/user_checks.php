@@ -1,5 +1,10 @@
 <?php
 include dirname(__FILE__)."\..\config\db_connect.php";
+
+function emailValidation($email){
+    return filter_var($email, FILTER_VALIDATE_EMAIL);
+}
+
 function userExists($email){
     global $conn;
 

@@ -1,5 +1,6 @@
 <?php
 include dirname(__FILE__)."\..\common\user_checks.php";
+include dirname(__FILE__)."\..\common\base.php";
 
 $response = array();
 global $conn;
@@ -8,21 +9,18 @@ parse_str($_SERVER["QUERY_STRING"], $input);
 
 if ($email = $input["email"]){
     if (!userExists($email)) {
-        $response["status"] = 404;
-        $response["message"] = "User not in the database";
+        echo error(404, "User not in the database");
     } else {
         try {
             $stmt = $conn->prepare("DELETE FROM users WHERE email = ?");
             $stmt->execute([$email]);
-            $response["status"] = 200;
-            $response["message"] = "User deleted";
+
+            echo response(200, "User deleted");
         } catch(PDOException $e){
-            echo $e->getMessage();
+            echo error(500, $e->getMessage());
         }
     }
 } else {
-    $response["status"] = 400;
-    $response["message"] = "Invalid parameters";
+    echo error(400, "Invalid parameters");
 }
-echo json_encode($response);
 ?>

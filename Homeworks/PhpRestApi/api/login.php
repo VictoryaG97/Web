@@ -1,41 +1,37 @@
 <?php
 include dirname(__FILE__)."\..\common\user_checks.php";
+include dirname(__FILE__)."\..\common\base.php";
+include dirname(__FILE__)."\..\common\user.php";
 
-$response = array();
+function login($input){
+    $email = $input["email"];
+    $password = $input["password"];
 
-# check if all required params are set 
-if (isset($_POST["email"]) && isset($_POST["password"])) {
-        $email = $_POST["email"];
-        $password = $_POST["password"];
+    # check if user with this emal exists in the db and if not, add the user
+    if (!userExists($email)) {
+        return error(404, "User not in the database");
+    } else {
+        $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+        $stmt->execute([$email]);
 
-        # check if user with this emal exists in the db and if not, add the user
-        if (!userExists($email)) {
-            $response["status"] = 404;
-            $response["message"] = "User not in the database";
-        } else {
-            $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
-            $stmt->execute([$email]);
-
-            if ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-                if (password_verify($password, $row["password_hash"])){
-                    session_start();
-                    $_SESSION["login_user"] = $email;
-                    $_SESSION["user_role"] = $row["role"];
-
-                    if (isset($_POST["remember"])){
-                        setcookie("email", $email, time() + 3600, "/", "", true, true);
-                        setcookie("role", $row["role"], time() + 3600, "/", "", true, true);
-                    }
-                    $response["status"] = 200;
-                    $response["message"] = "Logged in!";
-                    $response["full name"] = $row["first_name"]." ".$row["last_name"]." as ".$row["role"];
+        if ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+            if (password_verify($password, $row["password_hash"])){
+                $remember = FALSE;
+                if (isset($input["remember"])){
+                    $remember = TRUE;
                 }
-            }
-        }
-} else {
-    $response["status"] = 400;
-    $response["message"] = "Requred parameter missing";
-}
 
-echo json_encode($response);
+                $new_user = new User();
+                $new_user.login($row, $remember);
+
+                $message = $row["first_name"]." ".$row["last_name"]." logged in successfully as ".$row["role"];
+                return response(200, $message);
+            } else {
+                return error(404, "Wrong password");
+            }
+        } else {
+            return error(500, "Internal server error");
+        }
+    }
+}
 ?>
