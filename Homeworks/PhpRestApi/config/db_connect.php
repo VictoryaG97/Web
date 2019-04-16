@@ -7,7 +7,7 @@ define('DB_PASS', '');
 try {
     $conn = new PDO('mysql:host='.DB_HOST.';dbname='.DB_DATABASE, DB_USER, DB_PASS);
 } catch (PDOException $e) {
-    print "Error: " . $e->getMessage() . "<br/>";
+    echo 'Error: ' . $e->getMessage() . '<br/>';
     die();
 }
 ?>  

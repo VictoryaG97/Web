@@ -1,15 +1,15 @@
 <?php
-include dirname(__FILE__).'\..\common\user_checks.php';
+include dirname(__FILE__)."\..\common\user_checks.php";
 
 $response = array();
 
 # check if all required params are set 
-if (isset($_POST['email']) && isset($_POST['first_name']) &&
-    isset($_POST['last_name']) && isset($_POST['password'])) {
-        $email = $_POST['email'];
-        $first_name = $_POST['first_name'];
-        $last_name = $_POST['last_name'];
-        $password = $_POST['password'];
+if (isset($_POST["email"]) && isset($_POST["first_name"]) &&
+    isset($_POST["last_name"]) && isset($_POST["password"])) {
+        $email = $_POST["email"];
+        $first_name = $_POST["first_name"];
+        $last_name = $_POST["last_name"];
+        $password = $_POST["password"];
 
         # check if user with this emal exists in the db and if not, add the user
         if (userExists($email)) {
@@ -23,11 +23,11 @@ if (isset($_POST['email']) && isset($_POST['first_name']) &&
                 VALUES (:email, :fname, :lname, :pass, :role)
             ");
             $stmt->execute([
-                'email' => $email,
-                'fname' => $first_name,
-                'lname' => $last_name,
-                'role'  => "User",
-                'pass'  => $password_hash,
+                "email" => $email,
+                "fname" => $first_name,
+                "lname" => $last_name,
+                "role"  => "User",
+                "pass"  => $password_hash,
             ]);
             $response["status"] = 200;
             $response["message"] = "User created";

@@ -1,5 +1,5 @@
 <?php
-include dirname(__FILE__).'\..\config\db_connect.php';
+include dirname(__FILE__)."\..\config\db_connect.php";
 function userExists($email){
     global $conn;
 
