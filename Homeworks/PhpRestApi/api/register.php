@@ -13,6 +13,8 @@ function registration($input){
         if (userExists($email)) {
             return error(409, "User already exists");
         } else {
+            global $conn;
+
             $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
             $stmt = $conn->prepare("INSERT INTO users(

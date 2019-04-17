@@ -25,19 +25,17 @@ class User {
         $this->session_id = NULL;
     }
 
-    private function start_session($remember=FALSE){
+    private function start_session(){
         session_start();
-        $_SESSION["login_user"] = $this->email;
-        $_SESSION["user_role"] = $this->role;
 
-        if ($remember){
-            setcookie("email", $email, time() + 3600, "/", "", true, true);
-            setcookie("role", $row["role"], time() + 3600, "/", "", true, true);
-        }
+        $_SESSION["login_user"] = $this->email;
+
+        setcookie(session_name(), session_id(), time() + 3600, "/", "", true, true);
+
         $this->session_id = session_id();
     }
 
-    public function login($user_info, $remember=FALSE){
+    public function login($user_info){
         $this->account_id = $user_info["id"];
         $this->email = $user_info["email"];
         $this->first_name = $user_info["first_name"];
@@ -45,7 +43,7 @@ class User {
         $this->role = $user_info["role"];
 
         $this->is_authenticated = TRUE;
-        $this->start_session($remember);
+        $this->start_session();
     }
 
     public function logout(){
@@ -56,6 +54,7 @@ class User {
         $this->role = NULL;
         $this->is_authenticated = FALSE;
         $this->session_id = NULL;
+
     }
 }
 ?>

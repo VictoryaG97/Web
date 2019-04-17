@@ -1,6 +1,4 @@
 <?php
-include dirname(__FILE__)."\..\common\user_checks.php";
-include dirname(__FILE__)."\..\common\base.php";
 include dirname(__FILE__)."\..\common\user.php";
 
 function login($input){
@@ -11,18 +9,15 @@ function login($input){
     if (!userExists($email)) {
         return error(404, "User not in the database");
     } else {
+        global $conn;
         $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
         $stmt->execute([$email]);
 
         if ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             if (password_verify($password, $row["password_hash"])){
-                $remember = FALSE;
-                if (isset($input["remember"])){
-                    $remember = TRUE;
-                }
 
                 $new_user = new User();
-                $new_user.login($row, $remember);
+                $new_user->login($row);
 
                 $message = $row["first_name"]." ".$row["last_name"]." logged in successfully as ".$row["role"];
                 return response(200, $message);

@@ -1,27 +1,15 @@
 <?php
-include dirname(__FILE__)."\..\common\base.php";
 
-if (isset($_SESSION["login_user"])){
-    try {
-        session_start();
-        session_destroy();
-    } catch (Exception $e){
-        echo error(500, "Server error when destroying the session!");
-        exit();
+function logout(){
+    session_start();
+    if(isset($_SESSION)){
+        try {
+            setcookie(session_name(), session_id(), time() - 1);
+            session_destroy();
+        } catch (Exception $e){
+            return error(500, "Server error when destroying the session!");
+        }
     }
+    return response(200, "Logged out!");
 }
-
-if (isset($_COOKIE["email"]) && isset($_COOKIE["password"]) && isset($_COOKIE["role"])){
-    try {
-        $email = $_COOKIE["email"];
-        $password = $_COOKIE["password"];
-
-        setcookie("email", $email, time()-1);
-        setcookie("role", $password, time()-1);
-    } catch (Exception $e) {
-        echo error(500, "Server error when destroying the cookie!");
-        exit();
-    }
-}
-echo response(200, "Logged out!");
 ?>
