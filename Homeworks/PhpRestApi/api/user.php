@@ -1,13 +1,7 @@
 <?php
-include dirname(__FILE__)."\..\common\user_checks.php";
-include dirname(__FILE__)."\..\common\base.php";
 
-$response = array();
-global $conn;
-
-parse_str($_SERVER["QUERY_STRING"], $input);
-
-if ($email = $input["email"]){
+function delete_user($email){
+    global $conn;
     if (!userExists($email)) {
         echo error(404, "User not in the database");
     } else {
@@ -20,7 +14,5 @@ if ($email = $input["email"]){
             echo error(500, $e->getMessage());
         }
     }
-} else {
-    echo error(400, "Invalid parameters");
 }
 ?>
