@@ -1,0 +1,28 @@
+{
+    "roles": [
+        {
+            "id": 0,
+            "name": "admin",
+            "permissions": [
+                {
+                    "allowed": [
+                        "list:users",
+                        "delete:user"
+                    ],
+                    "on": "*"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "user",
+            "permissions": [
+                {
+                    "allowed": [
+                    ],
+                    "on": ""
+                }
+            ]
+        }
+    ]
+}
