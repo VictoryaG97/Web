@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Add Student</title>
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="validation.js"></script>
+    </head>
+    <body>
+        <div class="content">
+            <div class="title">
+                <h2> Регистрация </h2>
+            </div>
+            <div class="add-form">
+                <form method="POST" action="register.php" id="register_form">
+                    <div class="add-form-content">
+                        <div class="block">
+                            <label> Потребителско име <input id="user_name" name="user_name" type="text" required></label>
+                            <div id="userNameAlert"></div><br/>
+                        </div>
+                        <div class="block">
+                            <label> Парола <input id="password" name="password" type="password" required></label>
+                            <div id="passAlert"></div><br/>
+                        </div>
+                        <div class="block">
+                            <label> Повтори парола <input id="confirm_password" name="confirm_password" type="password" required></label>
+                            <div id="confirmPassAlert"></div><br/>
+                        </div>
+                        <div class="block">
+                            <input id="submit" name="submit" type="submit" value="Регистрация" onclick="return formValidation()"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <br><br>
+        </div>
+    </body>
+</html>
