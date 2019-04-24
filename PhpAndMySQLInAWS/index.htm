@@ -7,10 +7,16 @@
               href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
               crossorigin="anonymous">
-
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
-                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
-                crossorigin="anonymous"></script>
+        <script 
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
+            crossorigin="anonymous">
+        </script>
+        <script
+            src="https://code.jquery.com/jquery-3.4.0.slim.min.js"
+            integrity="sha256-ZaXnYkHGqIhqTbJ6MB4l9Frs/r7U4jlx7ir8PJYBqbI="
+            crossorigin="anonymous">
+        </script>
         <link href="style.css" rel="stylesheet">
     </head>
     <body>
@@ -23,15 +29,14 @@
                     <ul class="nav-menu">
                         <li class="menu-active"><a href="#intro">Начало</a></li>
                         <li><a href="#about">AWS</a></li>
-                        <li><a href="#speakers">Concepts</a></li>
-                        <li><a href="#schedule">VPC</a></li>
-                        <li><a href="#venue">EC2</a></li>
-                        <li><a href="#hotels">S3</a></li>
-                        <li><a href="#gallery">SDK</a></li>
-                        <li><a href="#supporters">RDS</a></li>
-                        <li><a href="#contact">MySQL</a></li>
-                        <li><a href="#contact">Config</a></li>  
-                        <li><a href="#contact">Certification</a></li>  
+                        <li><a href="#benefits">Предимства</a></li>
+                        <li><a href="#infrastructure">Инфраструктура</a></li>
+                        <li><a href="#php">PHP в AWS</a></li>
+                        <li><a href="#sdk">SDK</a></li>
+                        <li><a href="#config">Конфигуриране</a></li>
+                        <li><a href="#rds">RDS</a></li>
+                        <li><a href="#mysql">MySQL</a></li>
+                        <li><a href="#certificate">Сертифициране</a></li>  
                     </ul>
                 </nav><!-- #nav-menu-container -->
             </div>
@@ -44,11 +49,12 @@
             </div>
         </section>
 
-        <!-- What is AWS Section -->
-        <section id="about">
+        <!-- About AWS -->
+        <section class="section-space" id="about">
             <div class="container">
                 <div class="content">
-                    <div class="col-1-v">
+                    <div class="row">
+                    <div class="col-md-7">
                         <h2>Какво е AWS</h2>
                         <p>
                             Amazon Web Services (AWS) е платформа, която предоставя отдалечени компютърни услуги на индивидуални клиенти, компании и правителства, предлагана от Amazon от 2006 година.
@@ -57,96 +63,179 @@
                             <br/><br/>
                         </p>
                     </div>
-                    <div class="col-1-v">
-                            <h2>Предимства на AWS</h2>
-                            <p>
-                                Днес, AWS осигурява високо надеждна, мащабируема, евтина инфраструктурна платформа в облака, която захранва стотици хиляди фирми в 190 страни по света. С центрове за данни в САЩ, Европа, Бразилия, Сингапур, Япония и Австралия, клиентите от всички индустрии се възползват от следните предимства: 
+                    <div class="col-md-4 offset-md-1">
+                        <img src="img/aws.png"/>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="section-space" id="benefits">
+            <div class="container">
+                <div class="content">
+                    <h2>Предимства на AWS</h2>
+                    <span class="title-underline"></span>
+                    <p>
+                        Днес, AWS осигурява високо надеждна, мащабируема, евтина инфраструктурна платформа в облака, която захранва стотици хиляди фирми в 190 страни по света. С центрове за данни в САЩ, Европа, Бразилия, Сингапур, Япония и Австралия, клиентите от всички индустрии се възползват от следните предимства: 
+                    </p>
+                    <div class="col-8 offset-md-2">
+                        <img src="img/benefits.jpg"/>
+                    </div>
+                    <ul class="content-list">
+                        <li>Ниски цени
+                            <p>AWS предлага ниски, pay-as-you-go ценообразуване, без предплащане или дългосрочно *обвързване.<br/>
+                                Amazon успява да изгради и управлява глобална инфраструктура ‘at scale’ и да прехвърли спестяване<br/>
+                                на разходи под формата на ниски цени. 
                             </p>
-                            <ul class="content-list">
-                                <li>Ниски цени
-                                    <p>AWS предлага ниски, pay-as-you-go ценообразуване, без предплащане или дългосрочно *обвързване.<br/>
-                                       Amazon успява да изгради и управлява глобална инфраструктура ‘at scale’ и да прехвърли спестяване<br/>
-                                       на разходи под формата на ниски цени. 
-                                    </p>
-                                </li>
-                                <li>Гъвкавост и незабавна еластичност
-                                    <p>AWS осигурява глобална облачна инфраструктура, която позволява за бързо обновяване, експериментиране<br/>
-                                       и итерейтване. Вместо да чакате седмици, дори месеци за хардуер, веднага можете да *създадете (deploy)<br/>
-                                       нови приложения, незабавно ’scale up’ докато натоварването ви нараства, и незабавно ‘scale down’ набаза<br/>
-                                       търсенето. Независимо дали имате нужда от една виртуална машина или от хиляди, независимо дали ви<br/>
-                                       трябват за няколко часа или 24/7, плащате само за това което използвате.
-                                    </p>
-                                </li>
-                                <li>Свобода
-                                    <p>AWS позволява вие да изберете платформата за разработка или моделът за програмиране, най-подходящ<br/>
-                                       за вашият бизнес. Вие избирате колко услуги да използвате и как да ги използвате. Тази гъвкавост ви<br/>
-                                       дава възможност да се фокусирате върху иновациите, а не инфраструктурата.
-                                    </p>
-                                </li>
-                                <li>Сигурност
-                                    <p>AWS е сигурна, трайна технологична платформа с признати в индустрията сертификати и одити:<br/>
-                                       PCI DSS Level 1, ISO 27001, FISMA Moderate, FedRAMP, HIPAA, and SOC 1 (преди позната като SAS 70 и/или<br/>
-                                       SSAE 16) and SOC 2 одитни доклади. Услугите и дата центровете имат многослойна оперативна и физическа<br/>
-                                       сигурност, за да гарантира целостта и безопасността на вашите данни.
-                                    </p>
-                                </li>  
-                            </ul>
-                        </div>
+                        </li>
+                        <li>Гъвкавост и незабавна еластичност
+                            <p>AWS осигурява глобална облачна инфраструктура, която позволява за бързо обновяване, експериментиране<br/>
+                                и итерейтване. Вместо да чакате седмици, дори месеци за хардуер, веднага можете да *създадете (deploy)<br/>
+                                нови приложения, незабавно ’scale up’ докато натоварването ви нараства, и незабавно ‘scale down’ набаза<br/>
+                                търсенето. Независимо дали имате нужда от една виртуална машина или от хиляди, независимо дали ви<br/>
+                                трябват за няколко часа или 24/7, плащате само за това което използвате.
+                            </p>
+                        </li>
+                        <li>Свобода
+                            <p>AWS позволява вие да изберете платформата за разработка или моделът за програмиране, най-подходящ<br/>
+                                за вашият бизнес. Вие избирате колко услуги да използвате и как да ги използвате. Тази гъвкавост ви<br/>
+                                дава възможност да се фокусирате върху иновациите, а не инфраструктурата.
+                            </p>
+                        </li>
+                        <li>Сигурност
+                            <p>AWS е сигурна, трайна технологична платформа с признати в индустрията сертификати и одити:<br/>
+                                PCI DSS Level 1, ISO 27001, FISMA Moderate, FedRAMP, HIPAA, and SOC 1 (преди позната като SAS 70 и/или<br/>
+                                SSAE 16) and SOC 2 одитни доклади. Услугите и дата центровете имат многослойна оперативна и физическа<br/>
+                                сигурност, за да гарантира целостта и безопасността на вашите данни.
+                            </p>
+                        </li>  
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- AWS global infrastructure -->
-        <section id="infrastructure">
+        <!-- Global Infrastructure Section -->
+        <section class="section-space" id="infrastructure">
             <div class="container">
                 <div class="content">
-                    <div class="col-1-v">
-                        <h2>Глобална Инфраструктура</h2>
+                    <h2>Глобална Инфраструктура</h2>
+                    <p>
+                        AWS Cloud обхваща 61 Availability Zones (AZs), разпределени в 20 географски зони по цели свят, с обявени планове за още 15 AZs и 5 региона в Бахрейн, Кейптаун, САР Хонконг, Джакарта и Милано.
+                    </p>
+                    <img src="img/aws-global-network.png">
+                </div>
+            </div>
+        </section>
+
+        <!-- PHP Section -->
+        <section class="section-space" id="php">
+            <div class="container">
+                <div class="content">
+                    <h2>PHP в AWS</h2>
+                    <p>
+                        В AWS може да намерите всички необходими инструменти, документация и примерен код, за да разработвате сигурни, надеждни и мащабируеми PHP приложения в облака. 
+                    </p>
+                    <div class="sub-content">
+                        <h5>AWS SDK за PHP</h5>
                         <p>
-                            AWS Cloud обхваща 61 Availability Zones (AZs), разпределени в 20 географски зони по цели свят, с обявени планове за още 15 AZs и 5 региона в Бахрейн, Кейптаун, САР Хонконг, Джакарта и Милано.
+                            AWS SDK за PHP улеснява достъпа на програмистите до уеб услугите на Амазон през техния PHP код. Така те могат да създават стабилни приложения и софтуер като използват услуги като Amazon Simple Storage Service (S3), Amazon Elastic Compute Cloud (EC2), Amazon DynamoDB, Amazon Glacier, и т.н. 
                         </p>
-                        <img src="img/aws-global-network.png">
+                    </div>
+                    <div class="sub-content">
+                        <h5>Настройки</h5>
+                        <p>
+                            Започнете с регистрация в AWS, вземете вашите AWS credentials и настройте стредата си.
+                        </p>
+                        <p>
+                            За да се <b>регистрирате</b> за продукт, изпълнете стъпките:
+                        </p>
+                        <ol>
+                            <li>Отидете на началната страница на продукта, който желаете, например: <a href="https://aws.amazon.com/s3/">aws.amazon.com/s3/</a>.</li>
+                            <li>Натистене бутона sign-up в горния десен ъгъл на страницата.</li>
+                            <li>Следвайте инструкциите.</li>
+                        </ol>
+                        <p>
+                            За да можете да използвате AWS SDK за PHP, трябва да имате AWS Access Key ID и Secret Access Key. <br/>Стъпки:
+                        </p>
+                        <ol>
+                            <li>Отидете на: <a href="https://aws.amazon.com/">aws.amazon.com</a>.</li>
+                            <li>Натистене <b>Account</b> и след това <b>Security Credentials</b></li>
+                            <li>Намерете <b>Access Credentials</b> и изберете таба <b>Access Keys</b><br/>AWS Access Key ID се появява в колоната Access Key</li>
+                            <li>За да видите Secret Access Key, натиснете <b>Show</b></li>
+                        </ol>
+                        <p>
+                            <b>Важно!</b>   Това са тайни ключове, които само вие и AWS трябва да знаят. Много е важно да ги държите конфиденциално, за да защитите акаунта си.
+                        </p>
+                        <p>
+                            Минимални изисквания за настройване на средата:
+                        </p>
+                        <ol>
+                            <li>PHP 5.2 или по-нова версия (силно препоръчително версия поне 5.2.12 или по-висока). <br/> 
+                                Включивелно <a href="https://php.net/simplexml">SimpleXML</a>, <a href="https://php.net/json">JSON</a>, <a href="https://php.net/pcre">PCRE</a> и <a href="https://php.net/spl">SPL</a>.</li>
+                            <li><a href="https://php.net/curl">cURL</a> PHP разширение (Компилирани с <a href="https://www.openssl.org/">OpenSSL</a> библиотеки за поддръжка на HTTPS.</li>
+                            <li>Възможност за четене от, и писане върху файловата система чрез <a href="https://php.net/file_get_contents">file_get_contents()</a> and <a href="https://php.net/file_put_contents">file_put_contents()</a>.</li>
+                        </ol>
+                        <p>
+                            Ако не сте сигурни за всички PHP инсталации, можете да проверите с <a href="https://github.com/amazonwebservices/aws-sdk-for-php/tree/master/_compatibility_test/">AWS SDK for PHP Compatibility Test</a>.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- PHP in AWS -->
-        <section id="php">
+        <!-- SDK Section -->
+        <section class="section-space" id="sdk">
             <div class="container">
                 <div class="content">
-                    <div class="col-1-v">
-                        <h2>Подготовка</h2>
-                    </div>
-                </div>
-                <div class="content">
-                    <div class="col-1-v">
-                        <h2>Какво е AWS SDK за PHP?</h2>
-                    </div>
-                </div>
-                <div class="content">
-                    <div class="col-1-v">
-                        <h2>Услуги</h2>
-                    </div>
-                </div>
-                <div class="content">
-                    <div class="col-1-v">
-                        <h2>Блог</h2>
-                    </div>
+                    <h2>AWS SDK за PHP</h2>
+                    <p>
+                        AWS SDK за PHP улеснява достъпа на програмистите до уеб услугите на Амазон през техния PHP код. Така те могат да създават стабилни приложения и софтуер като използват услуги като Amazon Simple Storage Service (S3), Amazon Elastic Compute Cloud (EC2), Amazon DynamoDB, Amazon Glacier, и т.н. 
+                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- MySQL -->
-        <section id="infrastructure">
+        <section class="section-space" id="config">
             <div class="container">
                 <div class="content">
-                    <div class="col-1-v">
-                        <h2>MySQL</h2>
-                    </div>
+                    <h2>Конфигуриране на AWS SDK за PHP</h2>
                 </div>
             </div>
         </section>
-        
+
+        <section class="section-space" id="rds">
+            <div class="container">
+                <div class="content">
+                    <h2>RDS</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- MySQL Section-->
+        <section class="section-space" id="mysql">
+            <div class="container">
+                <div class="content">
+                    <h2>MySQL</h2>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-space" id="certificate">
+            <div class="container">
+                <div class="content">
+                    <h2>Сертифициране</h2>
+                </div>
+            </div>
+        </section>
+        <script>
+            $(document).on('click', '.menu-has-children i', function(e) {
+                $(this).next().toggleClass('menu-item-active');
+                $(this).nextAll('ul').eq(0).slideToggle();
+                $(this).toggleClass("fa-chevron-up fa-chevron-down");
+            });
+        </script>
+
     </body>
 </html>
