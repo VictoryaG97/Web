@@ -1,9 +1,6 @@
 /* Header */
-img {
-  width: 100%;
-}
 
-ul {
+.class-menu ul {
   list-style-type: none;
 }
 
@@ -115,10 +112,21 @@ ul {
   width: 100%;
 }
 
+/* Image definition */
+.image-def {
+  padding: 5px 20px;
+  font-size: 14px;
+  font-style: italic;
+}
+
 /* Sections */
 
 .section-space {
   padding: 50px 0;
+}
+
+.section-content {
+  padding: 35px 0;
 }
 
 .section-space:nth-child(even) {
@@ -146,19 +154,11 @@ h2:after
   font-size: 14px;
 }
 
-h5:after
-{
-  margin-top: 10px;
-  content: ' ';
-  display: block;
-  width: 10%;
-  border: 0.5px solid gray;
-}
-
+/* Intro Section */
 #intro {
   width: 100%;
   height: 60vh;
-  background: url(img/php_cluster.png) top center;
+  background: url(../img/php_cluster.png) top center;
   background-size: contain;
   background-repeat: no-repeat;
   overflow: hidden;
@@ -216,15 +216,64 @@ h5:after
   font-size: 20px;
 }
 
-
-#infrastructure img {
-  width: 100%;
+/* About Section */
+#about img, #infrastructure img{
+    width: 100%;
 }
 
+/* Benefit Section */
 #benefit img {
   padding: 1px;
 }
 
+/* Php Section */
+#php .col-md-5 {
+  padding-top: 30px;
+}
 
+/* SDK Section */
+h5 {
+  margin-top: 20px;
+}
+h5:after
+{
+  margin-top: 10px;
+  content: ' ';
+  display: block;
+  width: 10%;
+  border: 0.5px solid gray;
+}
 
+#config ul {
+  list-style-type: circle;
+}
 
+#config li {
+  margin: 0 0 10px 0px;
+}
+
+#rds img {
+  max-width: 100%;
+  box-sizing: border-box;
+  display: block;
+  margin: 15px 0;
+  line-height: 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+#mysql h6 {
+  padding: 5px 0;
+}
+
+#mysql img {
+  width: 200%
+}
+
+code {
+  padding: 4px 4px 2.66667px;
+  color: #b12704;
+  white-space: nowrap;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+}
