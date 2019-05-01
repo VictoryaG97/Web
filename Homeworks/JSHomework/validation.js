@@ -45,5 +45,13 @@ function formValidation() {
         document.getElementById("confirm_pass_error").innerHTML = "";
     }
 
-    return response;
+    if (response) {
+        $.ajax({
+            type: "POST",
+            url: "register.php",
+            data: "formdata",
+            success: true,
+        });
+    }
+    return false;
 }
