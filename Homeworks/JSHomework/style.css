@@ -1,54 +1,55 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin-top: 0px;
   font-family: Arial, Helvetica, sans-serif;
   background-color: #e4edf7;
 }
 
-.content {
-  position: absolute;
-  width: 100%;
+.registration-form {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 10px 20px;
+  background: #dfd3e2;
+  border-radius: 10px;
 }
 
-.title{
+h2 {
+  margin: 0 0 20px 0;
   text-align: center;
-
 }
 
-.add-form {
-  border: 1px solid #436dee;
-  background-color: #9ad4f1;
+input {
+  background: rgba(255, 255, 255, 0.1);
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 5px;
+  width: 100%;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3) inset;
+  margin-bottom: 10px;
+}
+
+input:focus {
+  box-shadow: 0 0 5px rgb(67, 0, 155);
+}
+
+input[type="submit"] {
+  margin-top: 25px;
+  padding: 19px 39px 18px 39px;
+  background-color: rgb(176, 136, 250);
+  font-size: 18px;
+  text-align: center;
   border-radius: 5px;
-  overflow: hidden;
-  margin: 40px 500px;
-  width: 400px;
-  height: 250px;
 }
 
-.add-form-content {
-  margin-top: 40px;
-}
-
-.block {
-  margin: 15px 55px;
-  text-align: right
-}
-
-input[type=submit] {
-  width: 100px;
-  margin: 20px 75px;
+fieldset {
+  margin-bottom: 30px;
+  border: none;
 }
 
 .error {
-  color: darkred;
-  font-size: smaller;
-}
-
-table, td {
-  border: 1px solid #436dee;
-  border-radius: 2px;
-  margin: 40px 500px;
-}
-
-th {
-  background-color: #9ad4f1;
+  color: red;
 }

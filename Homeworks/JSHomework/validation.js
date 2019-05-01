@@ -1,39 +1,49 @@
+var nameExpr = /^[\w\s.-]+$/;
+
 function formValidation() {
-    var user_name = document.forms["register_form"]["user_name"].value;
-    var password = document.forms["register_form"]["password"].value;
-    var confirm_password = document.forms["register_form"]["confirm_password"].value;
-    
-    if (user_name.length < 3 || user_name.length > 10) {
-        document.forms["register_form"]["user_name"].style.border = "1px solid red";
-        document.getElementById("userNameAlert").innerHTML = "Name must be between 3 and 10 characters!";
-        return false;
+    var user_name = document.getElementById("user_name");
+    var password = document.getElementById("password");
+    var confirm_password = document.getElementById("confirm_password");
+    var response = true;
+
+    // Username checks
+    if (user_name.value.trim().length === 0) {
+        document.getElementById("username_error").innerHTML = "Please enter your username *";
+        response = false;
+    } else if (user_name.value.length < 3 || user_name.value.length > 10) {
+        document.getElementById("username_error").innerHTML = "Name must be between 3 and 10 characters!";
+        response = false;
+    } else if (!user_name.value.match(nameExpr)) {
+        document.getElementById("username_error").innerHTML = "Name can contain only letters, numbers and _!";
+        response = false;
+    } else {
+        document.getElementById("username_error").innerHTML = "";
     }
 
-    var nameExpr = /^[\w\s.-]+$/;
-    if (!user_name.match(nameExpr)) {
-        document.forms["register_form"]["user_name"].style.border = "1px solid red";
-        document.getElementById("userNameAlert").innerHTML = "Name can contain only letters, numbers and _";
-        return false;
+    // Password checks
+    if (password.value.trim().length === 0) {
+        document.getElementById("password_error").innerHTML = "Please enter your password *";
+        response = false;
+    } else if (password.value.length < 6) {
+        document.getElementById("password_error").innerHTML = "Password should be at least 6 characters!";
+        response = false;
+    } else if (password.value.search(/[0-9]/) < 0 ||  password.value.search(/[a-z]/) < 0 || password.value.search(/[A-Z]/) < 0){
+        document.getElementById("password_error").innerHTML = "Password should contain at least one uppercase, one lowercase letter and one number!";
+        response = false;
+    } else {
+        document.getElementById("password_error").innerHTML = "";
     }
 
-    if (password.length < 6) {
-        document.forms["register_form"]["password"].style.border = "1px solid red";
-        document.getElementById("passAlert").innerHTML = "Password should be at least 6 characters!";
-        return false;
+    // Confirm password checks
+    if (confirm_password.value.trim().length == 0){
+        document.getElementById("confirm_pass_error").innerHTML = "Please enter your password *";
+        response = false;
+    } else if (password.value != confirm_password.value) {
+        document.getElementById("confirm_pass_error").innerHTML = "Passwords don't match!";
+        response = false;
+    } else {
+        document.getElementById("confirm_pass_error").innerHTML = "";
     }
 
-    var passExpr = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])$/;
-    if (password.search(/[0-9]/) < 0 ||  password.search(/[a-z]/) < 0 || password.search(/[A-Z]/) < 0){
-        document.forms["register_form"]["password"].style.border = "1px solid red";
-        document.getElementById("passAlert").innerHTML = "Password should contain at least one uppercase, one lowercase letter and one number!";
-        return false;
-    }
-
-    if (password != confirm_password) {
-        document.forms["register_form"]["confirm_password"].style.border = "1px solid red";
-        document.getElementById("confirmPassAlert").innerHTML = "Passwords don't match!";
-        return false;
-    }
-
-
+    return response;
 }
