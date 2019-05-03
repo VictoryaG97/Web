@@ -3,20 +3,20 @@
     <head>
         <meta charset="UTF-8" />
         <title>AWS</title>
-        <link rel="stylesheet"
-              href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-              crossorigin="anonymous">
-        <script 
-            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
-            crossorigin="anonymous">
-        </script>
         <script
             src="https://code.jquery.com/jquery-3.4.0.slim.min.js"
             integrity="sha256-ZaXnYkHGqIhqTbJ6MB4l9Frs/r7U4jlx7ir8PJYBqbI="
             crossorigin="anonymous">
         </script>
+        <script 
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
+            crossorigin="anonymous">
+        </script>
+        <link rel="stylesheet"
+              href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous">
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
@@ -35,6 +35,8 @@
                         <li><a href="#config">SDK</a></li>
                         <li><a href="#rds">RDS</a></li>
                         <li><a href="#mysql">MySQL</a></li> 
+                        <li><a href="#figures">Фигури</a></li> 
+                        <li><a href="#sources">Източници</a></li> 
                     </ul>
                 </nav><!-- #nav-menu-container -->
             </div>
@@ -62,9 +64,11 @@
                             </p>
                         </div>
                         <div class="col-md-4 offset-md-1">
-                            <img src="img/aws.png"/>
-                            <div class="image-def">
-                                <h7>Амазон Уеб Услуги - Cloud Computing</h7>
+                            <div class="figure" id="f1-CC">
+                                <img src="img/aws.png"/>
+                                <div class="image-def">
+                                    <h7>Фиг. 1 Амазон Уеб Услуги - Cloud Computing</h7>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -81,10 +85,12 @@
                     <p>
                         Днес, AWS осигурява високо надеждна, мащабируема, евтина инфраструктурна платформа в облака, която захранва стотици хиляди фирми в 190 страни по света. С центрове за данни в САЩ, Европа, Бразилия, Сингапур, Япония и Австралия, клиентите от всички индустрии се възползват от следните предимства: 
                     </p>
-                    <div class="col-8 offset-md-2">
-                        <img src="img/benefits.jpg"/>
-                        <div class="image-def">
-                            <h7>Амазон Уеб Услуги - Предимства</h7>
+                    <div class="col-8 offset-md-1">
+                        <div class="figure" id="f2-benefits">
+                            <img src="img/benefits.jpg"/>
+                            <div class="image-def">
+                                <h7>Фиг. 2 Амазон Уеб Услуги - Предимства</h7>
+                            </div>
                         </div>
                     </div>
                     <div class="sub-content">
@@ -134,7 +140,12 @@
                     <p>
                         AWS Cloud обхваща 61 Availability Zones (AZs), разпределени в 20 географски зони по цели свят, с обявени планове за още 15 AZs и 5 региона в Бахрейн, Кейптаун, САР Хонконг, Джакарта и Милано.
                     </p>
-                    <img src="img/aws-global-network.png">
+                    <div class="figure" id="f3-GI">
+                        <img src="img/aws-global-network.png">
+                        <div class="image-def">
+                            <h7>Фиг. 3 Амазон Уеб Услуги - Глобална инфраструктура</h7>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -156,9 +167,11 @@
                                 </p>
                             </div>
                             <div class="col-md-4">
-                                <img src="img/php-sdk-overview.png">
-                                <div class="image-def">
-                                    <h7>Амазон Уеб Услуги - SDK за PHP</h7>
+                                <div class="figure" id="f4-SDK">
+                                    <img src="img/php-sdk-overview.png">
+                                    <div class="image-def">
+                                        <h7>Фиг. 4 Амазон Уеб Услуги - SDK за PHP</h7>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -365,13 +378,46 @@
             </div>
         </section>
 
-        <script>
-            $(document).on('click', '.menu-has-children i', function(e) {
-                $(this).next().toggleClass('menu-item-active');
-                $(this).nextAll('ul').eq(0).slideToggle();
-                $(this).toggleClass("fa-chevron-up fa-chevron-down");
-            });
-        </script>
+         <!-- Figures Section -->
+        <section class="section-space" id="figures">
+            <div class="container">
+                <div class="section-content">
+                    <h2>Фигури</h2>
+                    <div class="sub-content">
+                        <ul class="content-list">
+                            <li><a href="#f1-CC">Фигура 1 </a>Амазон Уеб Услуги - Cloud Computing</li>
+                            <li><a href="#f2-benefits">Фигура 2 </a>Амазон Уеб Услуги - Предимства</li>
+                            <li><a href="#f3-GI">Фигура 3 </a>Амазон Уеб Услуги - Глобална инфраструктура</li>
+                            <li><a href="#f4-SDK">Фигура 4 </a>Амазон Уеб Услуги - SDK за PHP</li>  
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <!-- Sources Section -->
+        <section class="section-space" id="sources">
+            <div class="container">
+                <div class="section-content">
+                    <h2>Използвани източници</h2>
+                    <div class="sub-content">
+                        <ul class="content-list">
+                            <li><a href="https://en.wikipedia.org/wiki/Amazon_Web_Services">[1] </a>Амазон Уеб Услуги</li>
+                            <li><a href="https://aws.amazon.com/about-aws/">[2] </a>Какво е AWS</li>
+                            <li><a href="https://aws.amazon.com/?nc2=h_lg/#Global_Network_of_AWS_Regions">[3] </a>Амазон Уеб Услуги - Глобална инфраструктура</li>
+                            <li><a href="https://aws.amazon.com/developer/language/php/">[4] </a>PHP в AWS</li>
+                            <li><a href="https://aws.amazon.com/sdk-for-php/">[5] </a>SDK за PHP в AWS</li>
+                            <li><a href="https://aws.amazon.com/articles/getting-started-with-the-aws-sdk-for-php/?tag=articles%23keywords%23php">[6] </a>Конфигуриране</li>
+                            <li><a href="https://aws.amazon.com/rds/">[7] </a>RDS</li>
+                            <li><a href="https://aws.amazon.com/rds/mysql/">[8] </a>MySQL</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Javascript File -->
+        <script src="js/main.js"></script>
 
     </body>
 </html>

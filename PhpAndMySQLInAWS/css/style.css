@@ -117,6 +117,7 @@
   padding: 5px 20px;
   font-size: 14px;
   font-style: italic;
+  text-align: center;
 }
 
 /* Sections */
@@ -268,6 +269,14 @@ h5:after
 
 #mysql img {
   width: 200%
+}
+
+#figures .sub-content li {
+    font-size: 16px;
+}
+
+#sources .sub-content li {
+  font-size: 16px;
 }
 
 code {
