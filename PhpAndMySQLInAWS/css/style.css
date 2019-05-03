@@ -84,16 +84,11 @@
   outline: none;
 }
 
-.nav-menu .menu-active a,
-.nav-menu a:hover {
-  color:#000;
+.active a {
+  color: #000;
 }
 
-.nav-menu > li {
-  margin-left: 8px;
-}
-
-.nav-menu > li > a:before {
+.active a:before {
   content: "";
   position: absolute;
   width: 0;
@@ -103,13 +98,12 @@
   background-color: orange;
   visibility: hidden;
   transition: all 0.3s ease-in-out 0s;
-}
-
-.nav-menu a:hover:before,
-.nav-menu li:hover > a:before,
-.nav-menu .menu-active > a:before {
   visibility: visible;
   width: 100%;
+}  
+
+.nav-menu > li {
+  margin-left: 8px;
 }
 
 /* Image definition */
