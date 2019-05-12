@@ -210,18 +210,25 @@
                         <p>
                             <b>Важно!</b>   Това са тайни ключове, които само вие и AWS трябва да знаят. Много е важно да ги държите конфиденциално, за да защитите акаунта си.
                         </p>
-                        <p>
-                            Минимални <b>изисквания</b> за настройване на средата:
-                        </p>
-                        <ol>
-                            <li>PHP 5.2 или по-нова версия (силно препоръчително версия поне 5.2.12 или по-висока). <br/> 
-                                Включивелно <a href="https://php.net/simplexml">SimpleXML</a>, <a href="https://php.net/json">JSON</a>, <a href="https://php.net/pcre">PCRE</a> и <a href="https://php.net/spl">SPL</a>.</li>
-                            <li><a href="https://php.net/curl">cURL</a> PHP разширение (Компилирани с <a href="https://www.openssl.org/">OpenSSL</a> библиотеки за поддръжка на HTTPS.</li>
-                            <li>Възможност за четене от, и писане върху файловата система чрез <a href="https://php.net/file_get_contents">file_get_contents()</a> and <a href="https://php.net/file_put_contents">file_put_contents()</a>.</li>
-                        </ol>
-                        <p>
-                            Ако не сте сигурни за всички PHP инсталации, можете да проверите с <a href="https://github.com/amazonwebservices/aws-sdk-for-php/tree/master/_compatibility_test/">AWS SDK for PHP Compatibility Test</a>.
-                        </p>
+                        <div id="prereq">
+                            <p>
+                                Минимални <b>изисквания</b> за настройване на средата:
+                            </p>
+                            <ol>
+                                <li>PHP 5.2 или по-нова версия (силно препоръчително версия поне 5.2.12 или по-висока). <br/> 
+                                    Включивелно <a href="https://php.net/simplexml">SimpleXML</a>, <a href="https://php.net/json">JSON</a>, <a href="https://php.net/pcre">PCRE</a> и <a href="https://php.net/spl">SPL</a>.</li>
+                                <li><a href="https://php.net/curl">cURL</a> PHP разширение (Компилирани с <a href="https://www.openssl.org/">OpenSSL</a> библиотеки за поддръжка на HTTPS.</li>
+                                <li>Възможност за четене от, и писане върху файловата система чрез <a href="https://php.net/file_get_contents">file_get_contents()</a> and <a href="https://php.net/file_put_contents">file_put_contents()</a>.</li>
+                            </ol>
+                            <p>
+                            Ако нямате работеща PHP среда, може да следвате стъпките от този 
+                            <a href="https://medium.com/@ss.shawnshi/how-to-host-a-lamp-web-application-server-on-aws-ec2-for-free-8f6fc61463ed">линк</a>
+                            и много <b>лесно и безплатно да си вдигнете инстанция с конфигурирани PHP и MySQL.</b>
+                            </p>
+                            <p>
+                                Ако не сте сигурни за всички PHP инсталации, можете да проверите с <a href="https://github.com/amazonwebservices/aws-sdk-for-php/tree/master/_compatibility_test/">AWS SDK for PHP Compatibility Test</a>.
+                            </p>
+                        </div>
                     </div>
                     <div class="sub-content">
                         <h5>Инсталация на SDK</h5>
@@ -229,7 +236,7 @@
                         <ul>
                             <li>Използвайте инсталационния файл от <a href="https://aws.amazon.com/sdk-for-php/">aws.amazon.com/sdk-for-php/</a></li>
                             <li>Инсталация през Git</li>
-                            <code>git clone git://github.com/amazonwebservices/aws-sdk-for-php.git AWSSDKforPHP<br>
+                            <code>git clone https://github.com/aws/aws-sdk-php.git AWSSDKforPHP<br>
                                   cd ./AWSSDKforPHP</code>
                             <li>Инсталация през Subversion</li>
                             <code>svn co http://svn.github.com/amazonwebservices/aws-sdk-for-php.git AWSSDKforPHP<br>
@@ -374,6 +381,15 @@
                             </div>
                         </div>
                     </div>
+                    <div>
+                        <h5>Конфигуриране</h5>
+                        <p>
+                            Ако сте изпълнили инструкциите от по-горния <a href="#prereq">линк за вдигане на EC2 инстанция, </a>
+                            вече имате инсталирана mysql.
+                            <br>Сега ще трябва да я конфигурирате и да се свържете с нея чрез някакъв външен софтуер (например Sequel Pro).
+                            <br>За целта следвайте стъпките от <a href="https://medium.com/@ss.shawnshi/how-to-configure-and-remotely-connect-to-mysql-on-ec2-instance-cef164e8539">тази статия.</a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -420,4 +436,16 @@
         <script src="js/main.js"></script>
 
     </body>
+    <div id="footer">
+        <footer>
+            <div class="row" id="footer-row">
+                <div class="col-md-4">
+                    <p>Автор: Виктория Гунчева Фн. 62080 Софтуерно Инженерство</p>
+                </div>
+                <div class="col-md-8" id="teacher-info">
+                    <p>Преподавател: доц. М. Петров</p>
+                </div>
+            </div>
+        </footer>
+    </div>
 </html>
